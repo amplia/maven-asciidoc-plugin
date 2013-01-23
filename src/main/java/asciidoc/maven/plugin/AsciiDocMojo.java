@@ -137,20 +137,23 @@ public class AsciiDocMojo extends AbstractMojo {
 
     public void execute() throws MojoExecutionException, MojoFailureException {
         
-        File outdir = this.outfile;
+        File outdir = new File(this.outfile,this.conversor);
         FileHelper.copyDir(new File("./src/main/resources"), outdir);
+        
         
         CmdI cmd = this.cmdFactory.getCommand(this.conversor).
             withSrc(this.srcfile).
-            withOutput(outfile).
+            withOutput(outdir).
             withFormat(format).
             withStylesheet(stylesheet).
             withIcons(icons).
             withIconsDir(iconsDir);
         
-        this.executor.exec(cmd.getOptions(), cmd.getProgram());  
+        this.executor.exec(cmd.getOptions(), cmd.getProgram());
+        
         
         FileHelper.copyDir(new File("./src/main/resources"), cmd.getOutputdir());
+        FileHelper.copyDir(cmd.getOutputdir(), new File(this.outfile,cmd.getOutputdir().getName()));
     }
 
     
