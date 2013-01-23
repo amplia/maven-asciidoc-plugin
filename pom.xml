@@ -17,8 +17,8 @@
 	<artifactId>asciidoc-maven-plugin</artifactId>
 	<version>1.0.0</version>
 	<packaging>maven-plugin</packaging>
-	<name>AsciiDoc Maven Plugin</name>
-	<description>AsciiDoc Maven Plugin.</description>
+	<name>Maven AsciiDoc Plugin</name>
+	<description>Maven AsciiDoc Plugin</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.java.version>1.6</project.java.version>
