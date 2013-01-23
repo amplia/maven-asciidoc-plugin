@@ -5,8 +5,8 @@
 # which accompanies this distribution, and is available at
 # http://www.gnu.org/licenses/gpl.html
 # 
-# Contributors:
-#     Carlos Badenes Olmedo - initial API and implementation
+# Contributor(s):
+#     cbadenes
 #-------------------------------------------------------------------------------
 = AsciiDoc cheatsheet
 :author: Alex Efros, cbitar

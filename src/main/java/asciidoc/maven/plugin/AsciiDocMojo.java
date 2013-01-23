@@ -5,9 +5,9 @@
  * which accompanies this distribution, and is available at
  * http://www.gnu.org/licenses/gpl.html
  * 
- * Contributors:
- *     cbitar - initial API and implementation
- *     Carlos Badenes Olmedo - initial API and implementation
+ * Contributor(s):
+ *     cbitar
+ *     cbadenes
  ******************************************************************************/
 package asciidoc.maven.plugin;
 
