@@ -49,6 +49,9 @@ public class AsciiDocMojo extends AbstractMojo {
     @Parameter (property="stylesheet", required=false)
     private String stylesheet;
     
+    @Parameter ( property="baseFile", required=false, defaultValue="${basedir}")
+    private File basefile;
+    
     @Parameter (property="icons", defaultValue="false", required=false)
     private boolean icons;
     
@@ -73,7 +76,15 @@ public class AsciiDocMojo extends AbstractMojo {
     }
 
     public void setSrcfile(String srcfile) {
-        this.srcfile = new File("."+File.separator+"src"+File.separator+"main"+File.separator+"asciidoc"+File.separator+srcfile);
+        this.srcfile = new File(this.basefile, "src"+File.separator+"main"+File.separator+"asciidoc"+File.separator+srcfile);
+    }
+    
+    public File getBasefile() {
+        return this.basefile;
+    }
+
+    public void setBasefile(File _basefile) {
+        this.basefile = _basefile;
     }
     
     public String getConversor() {
@@ -136,9 +147,9 @@ public class AsciiDocMojo extends AbstractMojo {
     }
 
     public void execute() throws MojoExecutionException, MojoFailureException {
-        
+        File resourceDir = new File(this.basefile, "src"+File.separator+"main"+File.separator+"resources");
         File outdir = new File(this.outfile,this.conversor);
-        FileHelper.copyDir(new File("./src/main/resources"), outdir);
+        FileHelper.copyDir(resourceDir, outdir);
         
         
         CmdI cmd = this.cmdFactory.getCommand(this.conversor).
@@ -152,7 +163,7 @@ public class AsciiDocMojo extends AbstractMojo {
         this.executor.exec(cmd.getOptions(), cmd.getProgram());
         
         
-        FileHelper.copyDir(new File("./src/main/resources"), cmd.getOutputdir());
+        FileHelper.copyDir(resourceDir, cmd.getOutputdir());
         FileHelper.copyDir(cmd.getOutputdir(), new File(this.outfile,cmd.getOutputdir().getName()));
     }
 
