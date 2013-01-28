@@ -28,9 +28,10 @@ public abstract class Abstract implements CmdI{
     protected File outFile;
     protected String stylesheet;
     protected String iconsDir;
-    
     protected boolean icons;
-
+    protected boolean verbose;
+    protected boolean noHeaderFooter;
+    protected String lang;
     
     public Abstract(String _id, File _asciidocHome) {
         this.log = new SystemStreamLog();
@@ -74,6 +75,24 @@ public abstract class Abstract implements CmdI{
         this.iconsDir = _file;
         return this;
     }
+    
+    @Override
+    public CmdI withVerbose(boolean _verbose) {
+        this.verbose = _verbose;
+        return this;
+    }
+    
+    @Override
+    public CmdI withNonHeaderFooter(boolean _noHeaderFooter) {
+        this.noHeaderFooter = _noHeaderFooter;
+        return this;
+    }
+    
+    @Override
+    public CmdI withLanguage(String _lang){
+        this.lang = _lang;
+        return this;
+    }    
     
     public File getProgram(){
         return new File(this.asciidocHome + File.separator + this.program);

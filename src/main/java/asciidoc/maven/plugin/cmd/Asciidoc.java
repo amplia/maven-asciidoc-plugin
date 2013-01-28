@@ -35,6 +35,12 @@ public class Asciidoc extends Abstract{
         // addArgv("-aicons"));
         // addArgv("-adata-uri"));
         // addArgv("-atheme=default"));
+        if (this.noHeaderFooter){
+            options.add("--no-header-footer");
+        }
+        if (this.verbose){
+            options.add("--verbose");
+        }
         options.add(this.srcFile.getAbsolutePath());
         return options;
     }

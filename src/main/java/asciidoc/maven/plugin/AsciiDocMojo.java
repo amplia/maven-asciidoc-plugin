@@ -63,6 +63,9 @@ public class AsciiDocMojo extends AbstractMojo {
     @Parameter (property="lang", defaultValue="en", required=false)
     private String lang;
 
+    @Parameter (property="verbose", defaultValue="false", required=false)
+    private boolean verbose;
+    
     private Factory cmdFactory;
     private Executor executor;
     
@@ -145,6 +148,10 @@ public class AsciiDocMojo extends AbstractMojo {
     public void setLang(String lang) {
         this.lang = lang;
     }
+    
+    public void setVerbose(boolean _verbose) {
+        this.verbose = _verbose;
+    }    
 
     public void execute() throws MojoExecutionException, MojoFailureException {
         File resourceDir = new File(this.basefile, "src"+File.separator+"main"+File.separator+"resources");
@@ -152,13 +159,16 @@ public class AsciiDocMojo extends AbstractMojo {
         FileHelper.copyDir(resourceDir, outdir);
         
         
-        CmdI cmd = this.cmdFactory.getCommand(this.conversor).
-            withSrc(this.srcfile).
+        CmdI cmd = this.cmdFactory.getCommand(conversor).
+            withSrc(srcfile).
             withOutput(outdir).
             withFormat(format).
             withStylesheet(stylesheet).
             withIcons(icons).
-            withIconsDir(iconsDir);
+            withIconsDir(iconsDir).
+            withVerbose(verbose).
+            withNonHeaderFooter(noHeaderFooter).
+            withLanguage(lang);
         
         this.executor.exec(cmd.getOptions(), cmd.getProgram());
         

@@ -27,11 +27,16 @@ public interface CmdI {
     
     CmdI withIconsDir(String _file);
     
+    CmdI withVerbose(boolean _verbose);
+    
+    CmdI withNonHeaderFooter(boolean _noHeaderFooter);
+    
+    CmdI withLanguage(String _lang);
+    
     File getProgram();
     
     LinkedList<String> getOptions();
 
     File getOutputdir();
-
 }
 

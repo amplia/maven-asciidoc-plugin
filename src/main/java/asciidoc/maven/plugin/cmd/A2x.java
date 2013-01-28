@@ -32,6 +32,9 @@ public class A2x extends Abstract{
             options.add("--icons");
             options.add("--icons-dir="+this.iconsDir);
         }
+        if (this.verbose){
+            options.add("--verbose");
+        }
         options.add("-f" + this.format);
         options.add("-D" + getOutput().getAbsolutePath());
         options.add(this.srcFile.getAbsolutePath());
