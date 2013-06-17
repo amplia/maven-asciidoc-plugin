@@ -19,13 +19,14 @@
 	<name>asciidoc-maven-plugin-test</name>
 	<description>asciidoc maven plugin test.</description>
 
-	<pluginRepositories>
+	<!-- <pluginRepositories>
 		<pluginRepository>
-			<id>AsciiDocMavenPluginSnapshotRepository</id>
-			<name>AsciiDoc Maven Plugin repository </name>
 			<url>https://github.com/amplia/maven-asciidoc-plugin</url>
 		</pluginRepository>
 	</pluginRepositories>
+	-->
+
+	
 
 
 	<build>
