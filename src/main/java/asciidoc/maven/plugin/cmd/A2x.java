@@ -26,6 +26,7 @@ public class A2x extends Abstract{
     @Override
     public LinkedList<String> getOptions() {
         LinkedList<String> options = new LinkedList<String>();
+        
         if (stylesheet != null) 
             options.add("--stylesheet=" + this.stylesheet);        
         if (this.icons){
@@ -35,8 +36,19 @@ public class A2x extends Abstract{
         if (this.verbose){
             options.add("--verbose");
         }
-        options.add("-f" + this.format);
+        options.add("-f"+this.format);
+        if (this.traductor != null){
+        	options.add("--"+this.traductor);
+        }
+        if (this.book)
+        	options.add("-dbook");
+        if (this.encoding != null)
+        	options.add("-a encoding="+this.encoding);
+        if (this.lang != null)
+        	options.add("-a lang="+this.lang);
+        
         options.add("-D" + getOutput().getAbsolutePath());
+
         options.add(this.srcFile.getAbsolutePath());
         return options;
     }
@@ -44,7 +56,9 @@ public class A2x extends Abstract{
     @Override
     public File getOutputdir() {
         String name = StringUtils.substringBefore(this.srcFile.getName(), "."+FileHelper.getFileExtension(srcFile));
-        return new File(getOutput(),name+"."+this.format);
-    }    
+        //return new File(getOutput(),name+"."+this.format);
+        return new File(getOutput(),name+".dir");
+    }
+
 }
 

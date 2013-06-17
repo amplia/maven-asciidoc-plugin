@@ -17,11 +17,19 @@ public interface CmdI {
     
     CmdI withFormat(String _value);
     
+    CmdI withTraductor(String _value);
+    
     CmdI withSrc(File _file);
     
     CmdI withOutput(File _file);
     
+    CmdI withEncoding(String _string);
+    
+    CmdI withBook(boolean book);
+    
     CmdI withStylesheet(String _file);
+    
+    CmdI withLanguage(String _lang);
 
     CmdI withIcons(boolean _icons);
     
@@ -30,8 +38,6 @@ public interface CmdI {
     CmdI withVerbose(boolean _verbose);
     
     CmdI withNonHeaderFooter(boolean _noHeaderFooter);
-    
-    CmdI withLanguage(String _lang);
     
     File getProgram();
     

@@ -2,7 +2,8 @@
 <!-- Copyright (c) 2013 Carlos Badenes Olmedo. All rights reserved. This 
 	program and the accompanying materials are made available under the terms 
 	of the GNU Public License v3.0 which accompanies this distribution, and is 
-	available at http://www.gnu.org/licenses/gpl.html Contributor(s): cbadenes -->
+	available at http://www.gnu.org/licenses/gpl.html 
+	Contributor(s): cbadenes asegovia-->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
@@ -14,19 +15,10 @@
 	</properties>
 	<groupId>es.cabadol.maven</groupId>
 	<artifactId>asciidoc-maven-plugin-test</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.3</version>
 	<packaging>jar</packaging>
 	<name>asciidoc-maven-plugin-test</name>
 	<description>asciidoc maven plugin test.</description>
-
-	<!-- <pluginRepositories>
-		<pluginRepository>
-			<url>https://github.com/amplia/maven-asciidoc-plugin</url>
-		</pluginRepository>
-	</pluginRepositories>
-	-->
-
-	
 
 
 	<build>
@@ -34,24 +26,36 @@
 			<plugin>
 				<groupId>es.cabadol.maven</groupId>
 				<artifactId>asciidoc-maven-plugin</artifactId>
-				<version>1.0.1</version>
-				<!-- <executions> <execution> <id>default-cli</id> <phase>test</phase> 
-					<configuration> <goalPrefix>convertHtml</goalPrefix> <srcfile>./sources/asciidoc-cheatsheet.txt</srcfile> 
-					<outfile>asciidoc-cheatsheet.html</outfile> <lang>en</lang> </configuration> 
-					</execution> </executions> -->
+				<version>1.0.3</version>
+				
+				<!-- HTML --> 
 				<configuration>
 					<conversor>a2x</conversor>
 					<verbose>true</verbose>
 					<srcfile>asciidoc-cheatsheet.txt</srcfile>
-					<format>chunked</format>
-					<!--<stylesheet>docbook-xsl.css</stylesheet> -->
-					<!--<icons>true</icons> -->
-					<!-- <conversor>asciidoc</conversor> <srcfile>opengate_data_collector_north_api.asc</srcfile> 
-						<format>html4</format> -->
-					<outfile>${project.build.directory}/datasheet/asciidoc-cheatsheet.html</outfile>
-					<!--<noHeaderFooter>false</noHeaderFooter> -->
-					<lang>en</lang>
+					<format>xhtml</format>
+					<!-- <format>chunked</format> -->
+					<icons>true</icons>
+					<outfile>${project.build.directory}/output</outfile>
+					<lang>es</lang>
 				</configuration>
+				
+				<!-- PDF -->
+				<!--  
+				<configuration>
+					<conversor>a2x</conversor>
+					<book>true</book>
+					<encoding>utf-8</encoding>
+					<verbose>true</verbose>
+					<srcfile>asciidoc-cheatsheet.txt</srcfile>
+					<format>pdf</format>
+					<traductor>fop</traductor>
+					<icons>true</icons>
+					<outfile>${project.build.directory}/output</outfile>
+					<lang>es</lang>
+				</configuration>
+				-->
+				
 				<executions>
 					<execution>
 						<goals>
@@ -69,7 +73,7 @@
 		<dependency>
 			<groupId>es.cabadol.maven</groupId>
 			<artifactId>asciidoc-maven-plugin</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.3</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
