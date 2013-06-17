@@ -9,6 +9,7 @@
   Contributor(s):
   	  cbitar
       cbadenes
+      asegovia
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
@@ -50,7 +51,7 @@
 		</license>
 	</licenses>
 	<prerequisites>
-		<maven>3.0.0</maven>
+		<maven>2.2.1</maven>
 	</prerequisites>
 	<scm>
 		<connection>scm:git://github.com/cabadol/maven-asciidoc-plugin.git</connection>
@@ -65,12 +66,14 @@
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-plugin-api</artifactId>
-			<version>3.0</version>
+			<!-- <version>3.0</version> -->
+			<version>2.2.1</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.plugin-tools</groupId>
 			<artifactId>maven-plugin-annotations</artifactId>
 			<version>3.2</version>
+			<!-- <version>3.2</version> -->
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
