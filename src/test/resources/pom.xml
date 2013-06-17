@@ -12,40 +12,63 @@
 		<log4j.version>1.2.16</log4j.version>
 		<junit.version>4.10</junit.version>
 	</properties>
-	<groupId>asciidoc</groupId>
+	<groupId>es.cabadol.maven</groupId>
 	<artifactId>asciidoc-maven-plugin-test</artifactId>
-	<version>0.0.0-SNAPSHOT</version>
+	<version>1.0.1</version>
 	<packaging>jar</packaging>
 	<name>asciidoc-maven-plugin-test</name>
 	<description>asciidoc maven plugin test.</description>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>AsciiDocMavenPluginSnapshotRepository</id>
+			<name>AsciiDoc Maven Plugin repository </name>
+			<url>https://github.com/amplia/maven-asciidoc-plugin</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>es.cabadol.maven</groupId>
 				<artifactId>asciidoc-maven-plugin</artifactId>
-				<version>1.0.0</version>
+				<version>1.0.1</version>
+				<!-- <executions> <execution> <id>default-cli</id> <phase>test</phase> 
+					<configuration> <goalPrefix>convertHtml</goalPrefix> <srcfile>./sources/asciidoc-cheatsheet.txt</srcfile> 
+					<outfile>asciidoc-cheatsheet.html</outfile> <lang>en</lang> </configuration> 
+					</execution> </executions> -->
+				<configuration>
+					<conversor>a2x</conversor>
+					<verbose>true</verbose>
+					<srcfile>asciidoc-cheatsheet.txt</srcfile>
+					<format>chunked</format>
+					<!--<stylesheet>docbook-xsl.css</stylesheet> -->
+					<!--<icons>true</icons> -->
+					<!-- <conversor>asciidoc</conversor> <srcfile>opengate_data_collector_north_api.asc</srcfile> 
+						<format>html4</format> -->
+					<outfile>${project.build.directory}/datasheet/asciidoc-cheatsheet.html</outfile>
+					<!--<noHeaderFooter>false</noHeaderFooter> -->
+					<lang>en</lang>
+				</configuration>
 				<executions>
 					<execution>
-						<id>default-cli</id>
-						<phase>test</phase>
-						<configuration>
-							<goalPrefix>convertHtml</goalPrefix>
-							<srcfile>./sources/asciidoc-cheatsheet.txt</srcfile>
-							<outfile>asciidoc-cheatsheet.html</outfile>
-							<lang>en</lang>
-						</configuration>
+						<goals>
+							<goal>asciidoc</goal>
+						</goals>
+						<phase>package</phase>
 					</execution>
 				</executions>
+
 			</plugin>
 		</plugins>
 	</build>
 	<dependencies>
-	
+
 		<dependency>
 			<groupId>es.cabadol.maven</groupId>
 			<artifactId>asciidoc-maven-plugin</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>

@@ -16,7 +16,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>es.cabadol.maven</groupId>
 	<artifactId>asciidoc-maven-plugin</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<packaging>maven-plugin</packaging>
 	<name>Maven AsciiDoc Plugin</name>
 	<description>Maven AsciiDoc Plugin</description>
@@ -54,26 +54,24 @@
 		<maven>2.2.1</maven>
 	</prerequisites>
 	<scm>
-		<connection>scm:git://github.com/cabadol/maven-asciidoc-plugin.git</connection>
-		<developerConnection>scm:git@github.com:cabadol/maven-asciidoc-plugin.git</developerConnection>
-		<url>https://github.com/cabadol/maven-asciidoc-plugin</url>
+		<connection>scm:git://github.com/amplia/maven-asciidoc-plugin.git</connection>
+		<developerConnection>scm:git@github.com:amplia/maven-asciidoc-plugin.git</developerConnection>
+		<url>https://github.com/amplia/maven-asciidoc-plugin</url>
 	</scm>
 	<issueManagement>
 		<system>GitHub</system>
-		<url>https://github.com/cabadol/maven-asciidoc-plugin/issues</url>
+		<url>https://github.com/amplia/maven-asciidoc-plugin/issues</url>
 	</issueManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.apache.maven</groupId>
 			<artifactId>maven-plugin-api</artifactId>
-			<!-- <version>3.0</version> -->
-			<version>2.2.1</version>
+			<version>3.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.maven.plugin-tools</groupId>
 			<artifactId>maven-plugin-annotations</artifactId>
 			<version>3.2</version>
-			<!-- <version>3.2</version> -->
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
