@@ -65,7 +65,8 @@ public class FileHelper {
     
     public static boolean copyDir(File _in, File _out){
         try {
-            log.info("Copying "+ _in.getName() + " to " + _out.getAbsolutePath());
+        	//System.out.println("Copying "+ _in.getAbsolutePath() + " to " + _out.getAbsolutePath());
+            log.info("Copying "+ _in.getAbsolutePath() + " to " + _out.getAbsolutePath());
             FileUtils.copyDirectory(_in, _out);
             return true;
         } catch (IOException e) {

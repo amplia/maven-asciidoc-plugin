@@ -28,10 +28,14 @@ public abstract class Abstract implements CmdI{
     protected File outFile;
     protected String stylesheet;
     protected String iconsDir;
+    protected String encoding;
+    protected boolean book;
     protected boolean icons;
     protected boolean verbose;
     protected boolean noHeaderFooter;
     protected String lang;
+    
+    protected String traductor;
     
     public Abstract(String _id, File _asciidocHome) {
         this.log = new SystemStreamLog();
@@ -41,9 +45,27 @@ public abstract class Abstract implements CmdI{
     }
     
     @Override
+    public CmdI withTraductor(String _value){
+    	this.traductor = _value;
+    	return this;
+    }
+    
+    
+    @Override
     public CmdI withFormat(String _value) {
         this.format = _value;
         return this;
+    }
+    
+    @Override
+    public CmdI withEncoding(String _value){
+    	this.encoding = _value;
+    	return this;
+    }
+    
+    public CmdI withBook(boolean _value){
+    	this.book = _value;
+    	return this;
     }
 
     @Override
@@ -106,6 +128,7 @@ public abstract class Abstract implements CmdI{
         this.outFile.mkdirs();
         return this.outFile;
     }
+    
     
     public String getId(){
         return this.id;

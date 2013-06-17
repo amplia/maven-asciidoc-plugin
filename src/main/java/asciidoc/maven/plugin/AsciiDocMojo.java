@@ -37,9 +37,18 @@ public class AsciiDocMojo extends AbstractMojo {
     @Parameter ( property="conversor", required=true)
     private String conversor;
     
+    @Parameter (property="traductor", required=false)
+    private String traductor;
+    
     @Parameter ( property="srcfile", required=true)
     private File srcfile;
 
+    @Parameter ( property="encoding", required=false)
+    private String encoding;
+    
+    @Parameter (property="book", required= false)
+    private boolean book;
+    
     @Parameter (property="outfile", defaultValue="${project.build.directory}", required=false)
     private File outfile;
 
@@ -97,6 +106,14 @@ public class AsciiDocMojo extends AbstractMojo {
     public void setConversor(String _conversor) {
         this.conversor = _conversor;
     }
+    
+    public String getTraductor() {
+    	return this.traductor;
+    }
+    
+    public void setTraductor(String _traductor){
+    	this.traductor = _traductor;
+    }
 
     public boolean isIcons() {
         return this.icons;
@@ -119,6 +136,22 @@ public class AsciiDocMojo extends AbstractMojo {
     
     public File getOutfile() {
         return outfile;
+    }
+    
+    public boolean getBook(){
+    	return this.book;
+    }
+    
+    public void setBook(boolean _value){
+    	this.book = _value;
+    }
+    
+    public String getEncoding(){
+    	return this.encoding;
+    }
+    
+    public void setEncoding(String _value) {
+    	this.encoding = _value;
     }
 
     public void setOutfile(File outfile) {
@@ -168,10 +201,13 @@ public class AsciiDocMojo extends AbstractMojo {
             withIconsDir(iconsDir).
             withVerbose(verbose).
             withNonHeaderFooter(noHeaderFooter).
-            withLanguage(lang);
+            withLanguage(lang).
+        	withTraductor(traductor).
+        	withBook(book).
+        	withEncoding(encoding);
+        	
         
         this.executor.exec(cmd.getOptions(), cmd.getProgram());
-        
         
         FileHelper.copyDir(resourceDir, cmd.getOutputdir());
         FileHelper.copyDir(cmd.getOutputdir(), new File(this.outfile,cmd.getOutputdir().getName()));
