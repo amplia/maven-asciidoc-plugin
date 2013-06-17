@@ -1,0 +1,27 @@
+AsciiDoc cheatsheet
+===================
+:author: Alex Efros, cbitar
+:email: powerman@powerman.name
+:revision: 2.2.2_cbitar
+:toc:
+:toclevel: 2
+
+== Abstract
+This is a cheatsheet for http://www.methods.co.nz/asciidoc/[AsciiDoc] -
+“Text based document generation” script.
+The cheatsheet available for different AsciiDoc versions (because of some
+markup syntax changes) and using different css styles. Here is list with
+http://powerman.name/doc/asciidoc-index[all available cheatsheets for
+different AsciiDoc version and using different css styles].
+
+== Attributes
+There a lot of predefined attributes in AsciiDoc, plus you can add your own.
+To get attribute value use \{attributename} syntax.
+Author is {author}
+Version is {revision}
+:My name: Alex Efros
+My name is {myname}
+Line
+with bad attribute {qwe} will be
+deleted
+Escaped: \{qwe} and +++{qwe}+++
