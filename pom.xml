@@ -9,7 +9,11 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>es.cabadol.maven</groupId>
 	<artifactId>asciidoc-maven-plugin</artifactId>
-	<version>1.0.2</version>
+
+	<version>1.0.3</version>
+
+
+
 	<packaging>maven-plugin</packaging>
 	<name>Maven AsciiDoc Plugin</name>
 	<description>Maven AsciiDoc Plugin</description>

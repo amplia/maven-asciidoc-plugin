@@ -48,6 +48,7 @@ public class A2x extends Abstract{
         	options.add("-a lang="+this.lang);
         
         options.add("-D" + getOutput().getAbsolutePath());
+
         options.add(this.srcFile.getAbsolutePath());
         return options;
     }
