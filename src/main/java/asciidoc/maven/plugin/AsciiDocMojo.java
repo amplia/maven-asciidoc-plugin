@@ -209,6 +209,7 @@ public class AsciiDocMojo extends AbstractMojo {
         
         this.executor.exec(cmd.getOptions(), cmd.getProgram());
         
+<<<<<<< HEAD
         System.out.println("resourceDir..."+resourceDir.getAbsolutePath());
         System.out.println("cmd.getOutputdir()..."+cmd.getOutputdir().getAbsolutePath());
         System.out.println("outfile..."+outfile.getAbsolutePath());
@@ -216,6 +217,8 @@ public class AsciiDocMojo extends AbstractMojo {
         
         
         FileHelper.copyDir(new File(outfile,conversor), cmd.getOutputdir());
+=======
+>>>>>>> origin
         FileHelper.copyDir(resourceDir, cmd.getOutputdir());
 
     }

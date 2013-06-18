@@ -15,7 +15,11 @@
 	</properties>
 	<groupId>es.cabadol.maven</groupId>
 	<artifactId>asciidoc-maven-plugin-test</artifactId>
+<<<<<<< HEAD
 	<version>1.0.3</version>
+=======
+	<version>1.0.2</version>
+>>>>>>> origin
 	<packaging>jar</packaging>
 	<name>asciidoc-maven-plugin-test</name>
 	<description>asciidoc maven plugin test.</description>
@@ -26,6 +30,7 @@
 			<plugin>
 				<groupId>es.cabadol.maven</groupId>
 				<artifactId>asciidoc-maven-plugin</artifactId>
+<<<<<<< HEAD
 				<version>1.0.3</version>
 				
 				<!-- HTML --> 
@@ -42,20 +47,53 @@
 				
 				<!-- PDF -->
 				<!--  
+=======
+				<version>1.0.2</version>
+				<!-- <executions> <execution> <id>default-cli</id> <phase>test</phase> 
+					<configuration> <goalPrefix>convertHtml</goalPrefix> <srcfile>./sources/asciidoc-cheatsheet.txt</srcfile> 
+					<outfile>asciidoc-cheatsheet.html</outfile> <lang>en</lang> </configuration> 
+					</execution> </executions> -->
+				<!-- 
+>>>>>>> origin
 				<configuration>
 					<conversor>a2x</conversor>
 					<book>true</book>
 					<encoding>utf-8</encoding>
 					<verbose>true</verbose>
+<<<<<<< HEAD
 					<srcfile>asciidoc-cheatsheet.txt</srcfile>
 					<format>pdf</format>
 					<traductor>fop</traductor>
 					<icons>true</icons>
 					<outfile>${project.build.directory}/output</outfile>
+=======
+					<srcfile>00_endesa_master.asc</srcfile>
+					<format>chunked</format>
+					<stylesheet>docbook-xsl.css</stylesheet>
+					<icons>true</icons>
+					<outfile>${project.build.directory}/endesa</outfile>
+>>>>>>> origin
 					<lang>es</lang>
 				</configuration>
 				-->
 				
+<<<<<<< HEAD
+=======
+				<configuration>
+					<conversor>a2x</conversor>
+					<book>true</book>
+					<encoding>utf-8</encoding>
+					<verbose>true</verbose>
+					<srcfile>00_endesa_master.asc</srcfile>
+					<format>pdf</format>
+					<traductor>fop</traductor>
+					<stylesheet>docbook-xsl.css</stylesheet>
+					<icons>true</icons>
+					<outfile>${project.build.directory}/endesa</outfile>
+					<lang>es</lang>
+				</configuration>
+				
+>>>>>>> origin
 				<executions>
 					<execution>
 						<goals>
